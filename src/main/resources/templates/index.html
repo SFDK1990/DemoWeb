@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Mi aplicación web</title>
+</head>
+<body>
+	<h5 th:inline="text">Hola '[[${usuario.nombreYapellidos}]]'  ([[${usuario.username}]]), 
+	tu rol es [[${usuario.rol.rol}]]. </h5>
+	
+	
+	<b>INICIO:</b> Aplicación web <b>APP</b>.
+	<ul> MENÚ:
+		<li> <a href="/app/saludo">Saluda</a> </li>
+		<li> <a href="/app/saludo?name=Julian">Salúdame</a> </li>
+		<!--Nos muestra por pantalla listar empleado solo si es admin -->
+		<li th:if="${usuario.rol.rol == 'ADMIN'}"> <a href="/app/listarEmpleados" >Lista de empleados</a> </li>
+		<li> <a href="/app/h2-console/">Consola BBDD H2</a> </li>
+	</ul>
+</body>
+</html>
